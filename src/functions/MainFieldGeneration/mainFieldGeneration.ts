@@ -1,4 +1,5 @@
-import {MainFieldType} from "../types/commonTypes";
+import {MainFieldType} from "../../types/commonTypes";
+import {countBombsCloseToCells} from "./countBombsCloseToCells";
 
 type mainFieldGenerationType = (
     MainField: MainFieldType,
@@ -6,7 +7,7 @@ type mainFieldGenerationType = (
 ) => void
 
 export const mainFieldGeneration:mainFieldGenerationType = (MainField, fieldLength) => {
-    const MainFieldLocal: any= [];
+    const MainFieldLocal: MainFieldType= [];
     let bombsCount
     for (let i = 0; i< fieldLength; i++) {
         const ArrayX = []// временный массив по оси x (горизонталь)
@@ -20,5 +21,5 @@ export const mainFieldGeneration:mainFieldGenerationType = (MainField, fieldLeng
         }
         MainFieldLocal.push(ArrayX)
     }
-    console.log(MainFieldLocal)
+    countBombsCloseToCells(MainField)
 }

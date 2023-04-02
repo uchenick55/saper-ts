@@ -14,8 +14,60 @@ type initialStateType = {
     fieldLength: number,
 }
 const initialState: initialStateType = { //стейт по умолчанию
-    fieldLength: 5,
-    MainField: []
+    fieldLength: 3,
+    MainField: [
+        [
+            {
+                "id": "00",
+                "isBomb": false,
+                "bombsClose": 0
+            },
+            {
+                "id": "01",
+                "isBomb": true,
+                "bombsClose": 0
+            },
+            {
+                "id": "02",
+                "isBomb": true,
+                "bombsClose": 0
+            }
+        ],
+        [
+            {
+                "id": "10",
+                "isBomb": true,
+                "bombsClose": 0
+            },
+            {
+                "id": "11",
+                "isBomb": false,
+                "bombsClose": 0
+            },
+            {
+                "id": "12",
+                "isBomb": false,
+                "bombsClose": 0
+            }
+        ],
+        [
+            {
+                "id": "20",
+                "isBomb": false,
+                "bombsClose": 0
+            },
+            {
+                "id": "21",
+                "isBomb": true,
+                "bombsClose": 0
+            },
+            {
+                "id": "22",
+                "isBomb": false,
+                "bombsClose": 0
+            }
+        ]
+    ]
 }
 
 const dataReducer = (state: initialStateType = initialState, action: ActionTypes): initialStateType => {//редьюсер
