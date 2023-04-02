@@ -10,16 +10,12 @@ export const setMainField = (): setAaaFieldType => { // экшн задания 
 type ActionTypes = setAaaFieldType
 
 type initialStateType = {
-    fieldLength: number,
     MainField: MainFieldType,
+    fieldLength: number,
 }
 const initialState: initialStateType = { //стейт по умолчанию
-    fieldLength: 9,
-    MainField: [[{
-        id: "11",
-        isBomb: true, // это бомба?
-        bombsClose: 1, // количество бомб рядом
-    }]]
+    fieldLength: 5,
+    MainField: []
 }
 
 const dataReducer = (state: initialStateType = initialState, action: ActionTypes): initialStateType => {//редьюсер
