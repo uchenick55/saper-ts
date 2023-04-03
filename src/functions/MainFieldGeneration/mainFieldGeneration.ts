@@ -23,6 +23,6 @@ export const mainFieldGeneration:mainFieldGenerationType = (
         }
         MainFieldLocal.push(ArrayX)
     }
-    console.log(MainFieldLocal)
+    //console.log(MainFieldLocal)
     countBombsCloseToCells(MainField)
 }
