@@ -1,13 +1,13 @@
 import {MainFieldType} from "../types/commonTypes";
 
-const SET_AAA  = "sbrrt/dataReducer/SET_AAA "; //константа задания
+const SET_MAINfIELD  = "sbrrt/dataReducer/SET_MAINfIELD "; //константа задания MainField
 
-export type setAaaFieldType  = { type: typeof SET_AAA}
-export const setMainField = (): setAaaFieldType => { // экшн задания сгенерированного поля боя
-    return {type: SET_AAA}
+export type setMainFieldType  = { type: typeof SET_MAINfIELD, MainField: MainFieldType}
+export const setMainField = ( MainField: MainFieldType): setMainFieldType => { // экшн задания сгенерированного поля боя
+    return {type: SET_MAINfIELD, MainField}
 };
 
-type ActionTypes = setAaaFieldType
+type ActionTypes = setMainFieldType
 
 type initialStateType = {
     MainField: MainFieldType,
@@ -15,8 +15,8 @@ type initialStateType = {
     fieldHeight: number,
 }
 const initialState: initialStateType = { //стейт по умолчанию
-    fieldLength: 3,
-    fieldHeight: 3,
+    fieldLength: 5,
+    fieldHeight: 4,
     MainField: [
         [
             {
@@ -84,9 +84,10 @@ const initialState: initialStateType = { //стейт по умолчанию
 const dataReducer = (state: initialStateType = initialState, action: ActionTypes): initialStateType => {//редьюсер
     let stateCopy: initialStateType; // объявлениечасти части стейта до изменения редьюсером
     switch (action.type) {
-        case SET_AAA:  // кейс задания ошибок формы
+        case SET_MAINfIELD:  // кейс задания ошибок формы
             stateCopy = {
                 ...state, // копия всего стейта
+                MainField: action.MainField
             }
             return stateCopy; // возврат копии стейта после изменения
         default:
