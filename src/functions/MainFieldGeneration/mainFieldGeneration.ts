@@ -4,12 +4,14 @@ import {countBombsCloseToCells} from "./countBombsCloseToCells";
 type mainFieldGenerationType = (
     MainField: MainFieldType,
     fieldLength: number,
+    fieldHeight: number
 ) => void
 
-export const mainFieldGeneration:mainFieldGenerationType = (MainField, fieldLength) => {
+export const mainFieldGeneration:mainFieldGenerationType = (
+    MainField, fieldLength, fieldHeight) => {
     const MainFieldLocal: MainFieldType= [];
     let bombsCount
-    for (let i = 0; i< fieldLength; i++) {
+    for (let i = 0; i< fieldHeight; i++) {
         const ArrayX = []// временный массив по оси x (горизонталь)
         for (let j = 0; j< fieldLength; j++) {
             ArrayX.push({
@@ -21,5 +23,6 @@ export const mainFieldGeneration:mainFieldGenerationType = (MainField, fieldLeng
         }
         MainFieldLocal.push(ArrayX)
     }
+    console.log(MainFieldLocal)
     countBombsCloseToCells(MainField)
 }

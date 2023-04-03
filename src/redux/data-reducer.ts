@@ -12,9 +12,11 @@ type ActionTypes = setAaaFieldType
 type initialStateType = {
     MainField: MainFieldType,
     fieldLength: number,
+    fieldHeight: number,
 }
 const initialState: initialStateType = { //стейт по умолчанию
-    fieldLength: 3,
+    fieldLength: 5,
+    fieldHeight: 3,
     MainField: [
         [
             {

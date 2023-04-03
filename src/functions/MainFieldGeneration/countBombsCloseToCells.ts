@@ -6,7 +6,6 @@ type countBombsCloseToCellsType = (
 ) => void
 
 export const countBombsCloseToCells:countBombsCloseToCellsType = (MainFieldLocal) => {
-    console.clear()
     MainFieldLocal.forEach((m1, ind1, Arr1)=>{
         m1.forEach((m2, ind2, Arr2)=>{
             if (m2.isBomb) {return} // пропускаем расчет количество бомб рядом, если в самой ячейке бомба
