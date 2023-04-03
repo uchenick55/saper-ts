@@ -29,6 +29,13 @@ export const countBombsCloseToCells:countBombsCloseToCellsType = (MainFieldLocal
 
 
 
+
+
+
+
+
+
+
 /*
             if (Arr1[ind1-1] && Arr1[ind1-1][ind2-1]) {
                 if (Arr1[ind1-1][ind2-1].isBomb) {

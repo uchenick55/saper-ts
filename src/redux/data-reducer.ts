@@ -15,58 +15,67 @@ type initialStateType = {
     fieldHeight: number,
 }
 const initialState: initialStateType = { //стейт по умолчанию
-    fieldLength: 5,
+    fieldLength: 3,
     fieldHeight: 3,
     MainField: [
         [
             {
                 "id": "00",
                 "isBomb": false,
-                "bombsClose": 0
+                "bombsClose": 0,
+                isShowed: false
             },
             {
                 "id": "01",
                 "isBomb": true,
-                "bombsClose": 0
+                "bombsClose": 0,
+                isShowed: false
             },
             {
                 "id": "02",
                 "isBomb": true,
-                "bombsClose": 0
+                "bombsClose": 0,
+                isShowed: false
             }
         ],
         [
             {
                 "id": "10",
                 "isBomb": true,
-                "bombsClose": 0
+                "bombsClose": 0,
+                isShowed: false
             },
             {
                 "id": "11",
                 "isBomb": false,
-                "bombsClose": 0
+                "bombsClose": 0,
+                isShowed: false
             },
             {
                 "id": "12",
                 "isBomb": false,
-                "bombsClose": 0
+                "bombsClose": 0,
+                isShowed: false
             }
         ],
         [
             {
                 "id": "20",
                 "isBomb": false,
-                "bombsClose": 0
+                "bombsClose": 0,
+                isShowed: false
             },
             {
                 "id": "21",
                 "isBomb": true,
-                "bombsClose": 0
+                "bombsClose": 0,
+                isShowed: false
             },
             {
                 "id": "22",
                 "isBomb": false,
-                "bombsClose": 0
+                "bombsClose": 0,
+                isShowed: false
             }
         ]
     ]
