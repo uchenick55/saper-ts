@@ -23,25 +23,34 @@ const Saper: React.FC<SaperType> = (
                         key={m2.id}
                         className={classes.cell}
                         onClick={() => {
-                            m2.isShowed = true
-                            setMainField( MainFieldLocal )
-                            zerroCellsUpdate( true )
+                            if (!m2.isBombFlag) { // если флаг не установлен
+                                m2.isShowed = true // поставить метку что ячейка открыта
+                                setMainField( MainFieldLocal ) // задать измененный стейт
+                                zerroCellsUpdate( true ) // открыть все нулевые поля
+                            }
                         }
                         }
                         onContextMenu={(e) => {
                             e.preventDefault()
-                            if (!m2.isShowed) {m2.setFlag = true}
-                            console.log( "нажата правая кнопка мыши" )
-                            setMainField( MainFieldLocal )
+                            if (!m2.isShowed) { // поставить флаг можно только на неоткрытую ячейку
+                                m2.isBombFlag = !m2.isBombFlag // поставить флаг над местом предполагаемой бомбы
+                            }
+                            setMainField( MainFieldLocal ) // задать измененный стейт
 
                         }}
                     >
                         <div>
-                            {m2.isShowed // если флаг isShowed
-                                ? m2.isBomb // в ячейке бомба?
-                                    ? <img className={classes.BOOM} src={require( '../assets/png/BOOM.png' )}/>
-                                    : <div>{m2.bombsClose}</div>
-                                : null}{/*пустые ячейки до нажатия*/}
+                            {m2.isBombFlag // если на ячейке стоит флаг с возможной бомбой
+                                ? <img className={classes.isBombFlag} src={require( '../assets/png/flag.png' )}/> // отображаем флаг
+                                :m2.isShowed // если ячейка была вскрыта ( isShowed)
+                                    ? m2.isBomb // в ячейке бомба?
+                                        ? <img className={classes.BOOM} src={require( '../assets/png/BOOM.png' )}/> // бомба при нажатии на нее
+                                        : m2.bombsClose ===0 // количество бомб рядом равно 0?
+                                            ? null // если да, то ничего не отображаем
+                                            : <div>{m2.bombsClose}</div> // иначе количество бомб рядом
+                                    : <img className={classes.EmptyCells} src={require( '../assets/png/cell.png' )}/> //пустые ячейки до нажатия
+                            }
+
                         </div>
                     </div>
                 } )}

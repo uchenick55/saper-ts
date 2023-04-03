@@ -20,7 +20,7 @@ export const mainFieldGeneration:mainFieldGenerationType = (
                 isBomb: Math.random() < 0.05, // это бомба с заданной вероятностью
                 bombsClose: 0, // количество бомб рядом
                 isShowed: false,
-                setFlag: false
+                isBombFlag: false
             })
 
         }
