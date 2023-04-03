@@ -15,8 +15,8 @@ type initialStateType = {
     fieldHeight: number,
 }
 const initialState: initialStateType = { //стейт по умолчанию
-    fieldLength: 9,
-    fieldHeight: 9,
+    fieldLength: 10,
+    fieldHeight: 10,
     MainField: [
         [
             {
@@ -27,7 +27,7 @@ const initialState: initialStateType = { //стейт по умолчанию
             },
             {
                 "id": "01",
-                "isBomb": true,
+                "isBomb": false,
                 "bombsClose": 0,
                 "isShowed": false
             },
@@ -73,51 +73,51 @@ const initialState: initialStateType = { //стейт по умолчанию
         [
             {
                 "id": "20",
-                "isBomb": true,
-                "bombsClose": 0,
+                "isBomb": false,
+                "bombsClose": 1,
                 "isShowed": false
             },
             {
                 "id": "21",
                 "isBomb": false,
-                "bombsClose": 0,
+                "bombsClose": 1,
                 "isShowed": false
             },
             {
                 "id": "22",
                 "isBomb": false,
-                "bombsClose": 0,
+                "bombsClose": 1,
                 "isShowed": false
             },
             {
                 "id": "23",
                 "isBomb": false,
-                "bombsClose": 0,
+                "bombsClose": 1,
                 "isShowed": false
             }
         ],
         [
             {
                 "id": "30",
-                "isBomb": false,
-                "bombsClose": 0,
-                "isShowed": false
-            },
-            {
-                "id": "31",
                 "isBomb": true,
                 "bombsClose": 0,
                 "isShowed": false
             },
             {
+                "id": "31",
+                "isBomb": false,
+                "bombsClose": 1,
+                "isShowed": false
+            },
+            {
                 "id": "32",
                 "isBomb": false,
-                "bombsClose": 0,
+                "bombsClose": 1,
                 "isShowed": false
             },
             {
                 "id": "33",
-                "isBomb": false,
+                "isBomb": true,
                 "bombsClose": 0,
                 "isShowed": false
             }

@@ -1,6 +1,7 @@
 import {MainFieldType} from "../types/commonTypes";
 import classes from "./saper.module.css"
 import React from "react";
+import {checkZerroCells} from "../functions/checkZerroCells";
 
 type SaperType = {
     MainField: MainFieldType,
@@ -24,12 +25,18 @@ const Saper: React.FC<SaperType> = (
                         key={m2.id}
                         className={classes.cell}
                         onClick={() => {
-                                m2.isShowed = true
-                                setMainField(MainFieldLocal)
-                            }
+                            m2.isShowed = true
+                           // checkZerroCells( MainFieldLocal, setMainField )
+                            setMainField( MainFieldLocal )
+
+                        }
                         }
                     >
-                        <div className={classes.class1}>{m2.isShowed && m2.id}</div>
+                        <div className={classes.class1}>
+                            {m2.isShowed ? m2.isBomb ? "b" : m2.bombsClose : ""}
+                         {/*   {m2.isShowed ? m2.isBomb ? "b" : m2.id : ""}*/}
+
+                        </div>
                     </div>
                 } )}
             </div>
