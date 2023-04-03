@@ -1,4 +1,5 @@
 import {MainFieldType} from "../types/commonTypes";
+import {checkZerroCells} from "../functions/checkZerroCells";
 
 const SET_MAINfIELD  = "sbrrt/dataReducer/SET_MAINfIELD "; //константа задания MainField
 
@@ -6,17 +7,25 @@ export type setMainFieldType  = { type: typeof SET_MAINfIELD, MainField: MainFie
 export const setMainField = ( MainField: MainFieldType): setMainFieldType => { // экшн задания сгенерированного поля боя
     return {type: SET_MAINfIELD, MainField}
 };
+const SHOULD_ZERRO_CELLS_UPDATE  = "sbrrt/dataReducer/SHOULD_ZERRO_CELLS_UPDATE "; //
 
-type ActionTypes = setMainFieldType
+export type zerroCellsUpdateType  = { type: typeof SHOULD_ZERRO_CELLS_UPDATE, ShouldZerroCellsUpdate: boolean}
+export const zerroCellsUpdate = ( ShouldZerroCellsUpdate: boolean): zerroCellsUpdateType => { //
+    return {type: SHOULD_ZERRO_CELLS_UPDATE, ShouldZerroCellsUpdate}
+};
+
+type ActionTypes = setMainFieldType | zerroCellsUpdateType
 
 type initialStateType = {
     MainField: MainFieldType,
     fieldLength: number,
     fieldHeight: number,
+    ShouldZerroCellsUpdate: boolean
 }
 const initialState: initialStateType = { //стейт по умолчанию
     fieldLength: 10,
     fieldHeight: 10,
+    ShouldZerroCellsUpdate: false,
     MainField: [
         [
             {
@@ -648,6 +657,12 @@ const dataReducer = (state: initialStateType = initialState, action: ActionTypes
             stateCopy = {
                 ...state, // копия всего стейта
                 MainField: action.MainField
+            }
+            return stateCopy; // возврат копии стейта после изменения
+        case SHOULD_ZERRO_CELLS_UPDATE:  //
+            stateCopy = {
+                ...state, // копия всего стейта
+                ShouldZerroCellsUpdate: action.ShouldZerroCellsUpdate
             }
             return stateCopy; // возврат копии стейта после изменения
         default:

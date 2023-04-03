@@ -5,10 +5,12 @@ import {checkZerroCells} from "../functions/checkZerroCells";
 
 type SaperType = {
     MainField: MainFieldType,
-    setMainField: (MainField: MainFieldType) => void
+    setMainField: (MainField: MainFieldType) => void,
+    zerroCellsUpdate: ( ShouldZerroCellsUpdate: boolean)=> void,
+
 }
 const Saper: React.FC<SaperType> = (
-    {MainField, setMainField}
+    {MainField, setMainField, zerroCellsUpdate}
 ) => {
 
     /*    type cellOnClickLocalType = () => void
@@ -26,11 +28,14 @@ const Saper: React.FC<SaperType> = (
                         className={classes.cell}
                         onClick={() => {
                             m2.isShowed = true
-                           // checkZerroCells( MainFieldLocal, setMainField )
                             setMainField( MainFieldLocal )
-
+                            zerroCellsUpdate(true)
                         }
                         }
+                        onContextMenu={(e)=>{
+                            e.preventDefault()
+                            console.log("нажата правая кнопка мыши")
+                        }}
                     >
                         <div className={classes.class1}>
                             {m2.isShowed ? m2.isBomb ? "b" : m2.bombsClose : ""}
