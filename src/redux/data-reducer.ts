@@ -15,67 +15,111 @@ type initialStateType = {
     fieldHeight: number,
 }
 const initialState: initialStateType = { //стейт по умолчанию
-    fieldLength: 5,
-    fieldHeight: 4,
+    fieldLength: 9,
+    fieldHeight: 9,
     MainField: [
         [
             {
                 "id": "00",
                 "isBomb": false,
                 "bombsClose": 0,
-                isShowed: false
+                "isShowed": true
             },
             {
                 "id": "01",
                 "isBomb": true,
                 "bombsClose": 0,
-                isShowed: false
+                "isShowed": true
             },
             {
                 "id": "02",
-                "isBomb": true,
+                "isBomb": false,
                 "bombsClose": 0,
-                isShowed: false
+                "isShowed": false
+            },
+            {
+                "id": "03",
+                "isBomb": false,
+                "bombsClose": 0,
+                "isShowed": true
             }
         ],
         [
             {
                 "id": "10",
-                "isBomb": true,
+                "isBomb": false,
                 "bombsClose": 0,
-                isShowed: false
+                "isShowed": false
             },
             {
                 "id": "11",
                 "isBomb": false,
                 "bombsClose": 0,
-                isShowed: false
+                "isShowed": true
             },
             {
                 "id": "12",
                 "isBomb": false,
                 "bombsClose": 0,
-                isShowed: false
+                "isShowed": false
+            },
+            {
+                "id": "13",
+                "isBomb": false,
+                "bombsClose": 0,
+                "isShowed": false
             }
         ],
         [
             {
                 "id": "20",
-                "isBomb": false,
+                "isBomb": true,
                 "bombsClose": 0,
-                isShowed: false
+                "isShowed": false
             },
             {
                 "id": "21",
-                "isBomb": true,
+                "isBomb": false,
                 "bombsClose": 0,
-                isShowed: false
+                "isShowed": false
             },
             {
                 "id": "22",
                 "isBomb": false,
                 "bombsClose": 0,
-                isShowed: false
+                "isShowed": false
+            },
+            {
+                "id": "23",
+                "isBomb": false,
+                "bombsClose": 0,
+                "isShowed": false
+            }
+        ],
+        [
+            {
+                "id": "30",
+                "isBomb": false,
+                "bombsClose": 0,
+                "isShowed": false
+            },
+            {
+                "id": "31",
+                "isBomb": true,
+                "bombsClose": 0,
+                "isShowed": false
+            },
+            {
+                "id": "32",
+                "isBomb": false,
+                "bombsClose": 0,
+                "isShowed": false
+            },
+            {
+                "id": "33",
+                "isBomb": false,
+                "bombsClose": 0,
+                "isShowed": false
             }
         ]
     ]

@@ -1,0 +1,22 @@
+.mainFiled {
+    position: relative;
+    left: 30%;
+    top: 3rem;
+
+}
+.row {
+    position: relative;
+
+}
+
+.cell {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-color: greenyellow;
+    margin: 0.1rem;
+    border-radius: 0.2rem;
+    font-size: 1rem;
+    vertical-align: top;
+
+}
