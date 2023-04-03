@@ -6,17 +6,13 @@ import {checkZerroCells} from "../functions/checkZerroCells";
 type SaperType = {
     MainField: MainFieldType,
     setMainField: (MainField: MainFieldType) => void,
-    zerroCellsUpdate: ( ShouldZerroCellsUpdate: boolean)=> void,
+    zerroCellsUpdate: (ShouldZerroCellsUpdate: boolean) => void,
 
 }
 const Saper: React.FC<SaperType> = (
     {MainField, setMainField, zerroCellsUpdate}
 ) => {
 
-    /*    type cellOnClickLocalType = () => void
-        const cellOnClickLocal:cellOnClickLocalType = () => { // локальный обработчик кликов по ячейкам
-
-        }*/
     const MainFieldLocal: MainFieldType = JSON.parse( JSON.stringify( MainField ) ) // полная копия массива ships
 
     return <div className={classes.mainFiled}>
@@ -29,18 +25,23 @@ const Saper: React.FC<SaperType> = (
                         onClick={() => {
                             m2.isShowed = true
                             setMainField( MainFieldLocal )
-                            zerroCellsUpdate(true)
+                            zerroCellsUpdate( true )
                         }
                         }
-                        onContextMenu={(e)=>{
+                        onContextMenu={(e) => {
                             e.preventDefault()
-                            console.log("нажата правая кнопка мыши")
+                            if (!m2.isShowed) {m2.setFlag = true}
+                            console.log( "нажата правая кнопка мыши" )
+                            setMainField( MainFieldLocal )
+
                         }}
                     >
-                        <div className={classes.class1}>
-                            {m2.isShowed ? m2.isBomb ? "b" : m2.bombsClose : ""}
-                         {/*   {m2.isShowed ? m2.isBomb ? "b" : m2.id : ""}*/}
-
+                        <div>
+                            {m2.isShowed // если флаг isShowed
+                                ? m2.isBomb // в ячейке бомба?
+                                    ? <img className={classes.BOOM} src={require( '../assets/png/BOOM.png' )}/>
+                                    : <div>{m2.bombsClose}</div>
+                                : null}{/*пустые ячейки до нажатия*/}
                         </div>
                     </div>
                 } )}

@@ -1,7 +1,10 @@
 .mainFiled {
     position: relative;
-    left: 30%;
+    left: 1rem;
     top: 3rem;
+    background-color: rgb(128,128,128);
+    width: max-content;
+    padding: 0.1rem;
 
 }
 .row {
@@ -13,19 +16,24 @@
     display: inline-block;
     width: 2rem;
     height: 2rem;
-    background-color: rgba(0,255,0, 1);
-    margin: 0.1rem;
-    border-radius: 0.2rem;
+    background-color: rgb(198,198,198);
+    margin: 0.05rem;
+    border-radius: 0.1rem;
     font-size: 1rem;
     vertical-align: top;
 }
 
 .cell:hover {
+    /*background-image: url("../assets/png/cell.png");*/
     background-color: rgba(0,255,100, 0.7);
     cursor: pointer;
 
 }
 
-.class1 {
 
+.BOOM {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.1rem;
 }

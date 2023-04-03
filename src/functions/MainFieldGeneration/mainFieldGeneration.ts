@@ -19,7 +19,8 @@ export const mainFieldGeneration:mainFieldGenerationType = (
                 id: i + "" + j, // id из строк и колонок
                 isBomb: Math.random() < 0.05, // это бомба с заданной вероятностью
                 bombsClose: 0, // количество бомб рядом
-                isShowed: false
+                isShowed: false,
+                setFlag: false
             })
 
         }
