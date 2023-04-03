@@ -23,13 +23,13 @@ const initialState: initialStateType = { //стейт по умолчанию
                 "id": "00",
                 "isBomb": false,
                 "bombsClose": 0,
-                "isShowed": true
+                "isShowed": false
             },
             {
                 "id": "01",
                 "isBomb": true,
                 "bombsClose": 0,
-                "isShowed": true
+                "isShowed": false
             },
             {
                 "id": "02",
@@ -41,7 +41,7 @@ const initialState: initialStateType = { //стейт по умолчанию
                 "id": "03",
                 "isBomb": false,
                 "bombsClose": 0,
-                "isShowed": true
+                "isShowed": false
             }
         ],
         [
@@ -55,7 +55,7 @@ const initialState: initialStateType = { //стейт по умолчанию
                 "id": "11",
                 "isBomb": false,
                 "bombsClose": 0,
-                "isShowed": true
+                "isShowed": false
             },
             {
                 "id": "12",

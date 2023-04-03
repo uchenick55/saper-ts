@@ -13,10 +13,19 @@
     display: inline-block;
     width: 2rem;
     height: 2rem;
-    background-color: greenyellow;
+    background-color: rgba(0,255,0, 1);
     margin: 0.1rem;
     border-radius: 0.2rem;
     font-size: 1rem;
     vertical-align: top;
+}
+
+.cell:hover {
+    background-color: rgba(0,255,100, 0.7);
+    cursor: pointer;
+
+}
+
+.class1 {
 
 }
