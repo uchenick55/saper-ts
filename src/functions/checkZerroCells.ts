@@ -1,11 +1,11 @@
 import {MainFieldType} from "../types/commonTypes";
 
 type checkZerroCellsType = (
-    MainField: MainFieldType,
-    setMainField: (MainField: MainFieldType) => void)
+    MainField: MainFieldType
+)
     => void
 
-export const checkZerroCells: checkZerroCellsType = (MainFieldLocal, setMainField) => {
+export const checkZerroCells: checkZerroCellsType = (MainFieldLocal) => {
     console.log("заход checkZerroCells")
 
     MainFieldLocal.map( (m1, ind1, Arr1) => {
