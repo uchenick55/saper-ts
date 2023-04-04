@@ -33,9 +33,7 @@
 }
 
 .cell:hover {
-    /*background-image: url("../assets/png/cell.png");*/
-    background-color: rgb(170,170,170);
-    cursor: pointer;
+    /*background-color: rgb(170,170,170);*/
 
 }
 
@@ -50,10 +48,14 @@
 .isBombFlag {
     width: var(--cellsHeightWidth);
     height: var(--cellsHeightWidth);
+    cursor: pointer;
+
 }
 .EmptyCells {
     width: var(--cellsHeightWidth);
     height: var(--cellsHeightWidth);
+    cursor: pointer;
+
 }
 
 .blue {
@@ -62,11 +64,9 @@
 .green {
     color: green;
 }
-
 .red {
     color: red;
 }
-
 .navyBlue {
     color: rgb(0,0,128)
 }
