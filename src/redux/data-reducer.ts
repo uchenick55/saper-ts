@@ -7,26 +7,36 @@ export type setMainFieldType  = { type: typeof SET_MAINfIELD, MainField: MainFie
 export const setMainField = ( MainField: MainFieldType): setMainFieldType => { // экшн задания сгенерированного поля боя
     return {type: SET_MAINfIELD, MainField}
 };
+
 const SHOULD_ZERRO_CELLS_UPDATE  = "sbrrt/dataReducer/SHOULD_ZERRO_CELLS_UPDATE "; //
 
 export type zerroCellsUpdateType  = { type: typeof SHOULD_ZERRO_CELLS_UPDATE, ShouldZerroCellsUpdate: boolean}
 export const zerroCellsUpdate = ( ShouldZerroCellsUpdate: boolean): zerroCellsUpdateType => { //
     return {type: SHOULD_ZERRO_CELLS_UPDATE, ShouldZerroCellsUpdate}
 };
+const SET_BOMB_FLAGS_QTY  = "sbrrt/dataReducer/SET_BOMB_FLAGS_QTY "; //задать сколько флагов над бомбами уже установлено
 
-type ActionTypes = setMainFieldType | zerroCellsUpdateType
+export type setBombFlagsQtyType  = { type: typeof SET_BOMB_FLAGS_QTY, bombFlagsQty: number}
+export const setBombFlagsQty = (bombFlagsQty: number): setBombFlagsQtyType => { //
+    return {type: SET_BOMB_FLAGS_QTY, bombFlagsQty}
+};
+
+type ActionTypes = setMainFieldType | zerroCellsUpdateType | setBombFlagsQtyType
 
 type initialStateType = {
-    MainField: MainFieldType,
-    fieldLength: number,
-    fieldHeight: number,
-    ShouldZerroCellsUpdate: boolean,
-    bombsQty: number
+    MainField: MainFieldType, //главное игровое поле
+    fieldLength: number, //длина игрового поля
+    fieldHeight: number, //высота игрового поля
+    ShouldZerroCellsUpdate: boolean,// флаг следует ли пройти еще один цикл открывания пустых ячеек (bombsClose ===0)
+    bombsQty: number // сколько бомб установлено на поле
+    bombFlagsQty: number // сколько бомб отмечено флагами
+
 }
 const initialState: initialStateType = { //стейт по умолчанию
     fieldLength: 10,
     fieldHeight: 10,
     bombsQty: 12,
+    bombFlagsQty: 0,
     ShouldZerroCellsUpdate: false,
     MainField: []
 }
@@ -44,6 +54,12 @@ const dataReducer = (state: initialStateType = initialState, action: ActionTypes
             stateCopy = {
                 ...state, // копия всего стейта
                 ShouldZerroCellsUpdate: action.ShouldZerroCellsUpdate
+            }
+            return stateCopy; // возврат копии стейта после изменения
+        case SET_BOMB_FLAGS_QTY:  // задать количество установленных флагов расположения бомб
+            stateCopy = {
+                ...state, // копия всего стейта
+                bombFlagsQty: action.bombFlagsQty
             }
             return stateCopy; // возврат копии стейта после изменения
         default:

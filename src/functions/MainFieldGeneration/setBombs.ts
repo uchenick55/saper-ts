@@ -12,7 +12,7 @@ export const setBombs:setBombsType = (
     console.log("setBombs hello!")
     let iterationCount: number = 0; // предохранитель от бесконечного цикла
     let bombsSet: number = 0 // сколько бомб уже установлено
-    while (bombsSet<bombsQty && iterationCount<100) {    //цикл пока не заданы все бомбы
+    while (bombsSet<bombsQty && iterationCount<1000) {    //цикл пока не заданы все бомбы
         iterationCount++
         const coordX = Math.floor(Math.random()*fieldLength) // случайный генератор по оси x (fieldLength)
         const coordY = Math.floor(Math.random()*fieldHeight)// случайный генератор по оси y (fieldHeight)

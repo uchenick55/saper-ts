@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import {GlobalStateType} from "../redux/store-redux";
 import {MainFieldType} from "../types/commonTypes";
 import Saper from "./Saper";
-import {setMainField, zerroCellsUpdate} from "../redux/data-reducer";
+import {setBombFlagsQty, setMainField, zerroCellsUpdate} from "../redux/data-reducer";
 import {checkZerroCells} from "../functions/checkZerroCells";
 
 type SaperContainerType = {
@@ -14,14 +14,19 @@ type SaperContainerType = {
     fieldHeight: number,
     ShouldZerroCellsUpdate: boolean,
     bombsQty: number,
+    bombFlagsQty: number,
     setMainField: (MainField: MainFieldType) => void,
     zerroCellsUpdate: ( ShouldZerroCellsUpdate: boolean)=> void
+    setBombFlagsQty: (bombFlagsQty: number)=> void,
 
 
 }
 const SaperContainer: React.FC<SaperContainerType> = (
     {MainField, fieldLength, fieldHeight, setMainField,
-        ShouldZerroCellsUpdate, zerroCellsUpdate, bombsQty}) => {
+        ShouldZerroCellsUpdate, zerroCellsUpdate, bombsQty, bombFlagsQty,
+        setBombFlagsQty
+
+    }) => {
 
     useEffect( () => { // генерация главного поля при первой загрузке приложения
          mainFieldGeneration(setMainField, fieldLength, fieldHeight, MainField, bombsQty)
@@ -40,6 +45,7 @@ const SaperContainer: React.FC<SaperContainerType> = (
     return <div>
         <Saper
             MainField={MainField} setMainField={setMainField} zerroCellsUpdate={zerroCellsUpdate}
+            bombFlagsQty={bombFlagsQty} bombsQty={bombsQty} setBombFlagsQty={setBombFlagsQty}
         />
     </div>
 }
@@ -49,6 +55,7 @@ type mapStateToPropsType = {
     fieldHeight: number,
     ShouldZerroCellsUpdate: boolean,
     bombsQty: number,
+    bombFlagsQty: number
 }
 const mapStateToProps = (state: GlobalStateType) => {
     return {
@@ -56,18 +63,20 @@ const mapStateToProps = (state: GlobalStateType) => {
         fieldLength: state.mainData.fieldLength,
         fieldHeight: state.mainData.fieldHeight,
         ShouldZerroCellsUpdate: state.mainData.ShouldZerroCellsUpdate,
-        bombsQty: state.mainData.bombsQty
+        bombsQty: state.mainData.bombsQty,
+        bombFlagsQty: state.mainData.bombFlagsQty
     }
 }
 type mapDispatchToPropsType = {
     setMainField: (MainField: MainFieldType) => void,
     zerroCellsUpdate: ( ShouldZerroCellsUpdate: boolean)=> void
+    setBombFlagsQty: (bombFlagsQty: number)=> void
 }
 export default connect<mapStateToPropsType, // тип mapStateToProps
     mapDispatchToPropsType, // тип mapDispatchToProps
     unknown, // тип входящих пропсов от родителя
     GlobalStateType // глобальный стейт из стора
     >( mapStateToProps, {
-    setMainField, zerroCellsUpdate
+    setMainField, zerroCellsUpdate, setBombFlagsQty
 } )( SaperContainer )
 
