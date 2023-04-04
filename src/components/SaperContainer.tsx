@@ -13,6 +13,7 @@ type SaperContainerType = {
     fieldLength: number,
     fieldHeight: number,
     ShouldZerroCellsUpdate: boolean,
+    bombsQty: number,
     setMainField: (MainField: MainFieldType) => void,
     zerroCellsUpdate: ( ShouldZerroCellsUpdate: boolean)=> void
 
@@ -20,10 +21,10 @@ type SaperContainerType = {
 }
 const SaperContainer: React.FC<SaperContainerType> = (
     {MainField, fieldLength, fieldHeight, setMainField,
-        ShouldZerroCellsUpdate, zerroCellsUpdate}) => {
+        ShouldZerroCellsUpdate, zerroCellsUpdate, bombsQty}) => {
 
     useEffect( () => { // генерация главного поля при первой загрузке приложения
-         mainFieldGeneration(setMainField, fieldLength, fieldHeight, MainField)
+         mainFieldGeneration(setMainField, fieldLength, fieldHeight, MainField, bombsQty)
     }, [] )
 
     useEffect( () => { // генерация главного поля при первой загрузке приложения
@@ -46,14 +47,16 @@ type mapStateToPropsType = {
     MainField: MainFieldType,
     fieldLength: number,
     fieldHeight: number,
-    ShouldZerroCellsUpdate: boolean
+    ShouldZerroCellsUpdate: boolean,
+    bombsQty: number,
 }
 const mapStateToProps = (state: GlobalStateType) => {
     return {
         MainField: state.mainData.MainField,
         fieldLength: state.mainData.fieldLength,
         fieldHeight: state.mainData.fieldHeight,
-        ShouldZerroCellsUpdate: state.mainData.ShouldZerroCellsUpdate
+        ShouldZerroCellsUpdate: state.mainData.ShouldZerroCellsUpdate,
+        bombsQty: state.mainData.bombsQty
     }
 }
 type mapDispatchToPropsType = {

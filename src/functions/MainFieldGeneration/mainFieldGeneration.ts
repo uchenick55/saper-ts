@@ -1,15 +1,17 @@
 import {MainFieldType} from "../../types/commonTypes";
 import {countBombsCloseToCells} from "./countBombsCloseToCells";
+import {setBombs} from "./setBombs";
 
 type mainFieldGenerationType = (
     setMainField: ( MainField: MainFieldType) => void,
     fieldLength: number,
     fieldHeight: number,
-    MainField: MainFieldType
+    MainField: MainFieldType,
+    bombsQty: number,
 ) => void
 
 export const mainFieldGeneration:mainFieldGenerationType = (
-    setMainField, fieldLength, fieldHeight, MainField) => {
+    setMainField, fieldLength, fieldHeight, MainField, bombsQty) => {
     const MainFieldLocal: MainFieldType= [];
     let bombsCount
     for (let i = 0; i< fieldHeight; i++) {
@@ -17,14 +19,18 @@ export const mainFieldGeneration:mainFieldGenerationType = (
         for (let j = 0; j< fieldLength; j++) {
             ArrayX.push({
                 id: i + "" + j, // id из строк и колонок
-                isBomb: Math.random() < 0.1, // это бомба с заданной вероятностью
+                isBomb: false, // Math.random() < 0.1, // это бомба с заданной вероятностью
                 bombsClose: 0, // количество бомб рядом
-                isShowed: false,
-                isBombFlag: false
+                isShowed: false, // ячейка не открыта по умолчанию
+                isBombFlag: false // флаг "здесь бомба" не установлен
             })
 
         }
         MainFieldLocal.push(ArrayX)
     }
-    countBombsCloseToCells(MainFieldLocal, setMainField)
+    setBombs(MainFieldLocal, bombsQty, fieldLength, fieldHeight) // задать бомбы
+    countBombsCloseToCells(MainFieldLocal) // расставить количество бомб рядом по ячейкам
+
+    setMainField(MainFieldLocal) // задать сгенерированное поле в стор
+
 }

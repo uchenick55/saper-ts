@@ -20,11 +20,13 @@ type initialStateType = {
     MainField: MainFieldType,
     fieldLength: number,
     fieldHeight: number,
-    ShouldZerroCellsUpdate: boolean
+    ShouldZerroCellsUpdate: boolean,
+    bombsQty: number
 }
 const initialState: initialStateType = { //стейт по умолчанию
     fieldLength: 10,
     fieldHeight: 10,
+    bombsQty: 12,
     ShouldZerroCellsUpdate: false,
     MainField: []
 }

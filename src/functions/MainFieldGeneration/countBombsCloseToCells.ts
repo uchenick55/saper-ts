@@ -2,12 +2,11 @@ import {MainFieldType} from "../../types/commonTypes";
 
 type countBombsCloseToCellsType = (
     MainField: MainFieldType,
-    setMainField: ( MainField: MainFieldType) => void,
 
 ) => void
 
 export const countBombsCloseToCells:countBombsCloseToCellsType = (
-    MainFieldLocal, setMainField) => {
+    MainFieldLocal) => {
     MainFieldLocal.forEach((m1, ind1, Arr1)=>{
         m1.forEach((m2, ind2, Arr2)=>{
             if (m2.isBomb) {return} // пропускаем расчет количество бомб рядом, если в самой ячейке бомба
@@ -16,15 +15,12 @@ export const countBombsCloseToCells:countBombsCloseToCellsType = (
                     if (Arr1[ind1+y] && Arr1[ind1+y][ind2+x]) {// если существует смещенный ряд и ячейка в пределах поля
                         if (Arr1[ind1+y][ind2+x].isBomb) { //и если эта смещенная ячейка содежит бомбу
                             m2.bombsClose++ // увеличиваем счетчик бомб у ячейки, которую обходим вокруг
-                           // console.log("id:", m2.id, "| Бомба на  y:",y,", x", x,"| bombsClose:", m2.bombsClose)
                         }
                     }
                 }
             }
         })
     })
-    console.log(MainFieldLocal)
-    setMainField(MainFieldLocal)
 }
 
 
