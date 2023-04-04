@@ -17,7 +17,7 @@ export const mainFieldGeneration:mainFieldGenerationType = (
         for (let j = 0; j< fieldLength; j++) {
             ArrayX.push({
                 id: i + "" + j, // id из строк и колонок
-                isBomb: Math.random() < 0.05, // это бомба с заданной вероятностью
+                isBomb: Math.random() < 0.1, // это бомба с заданной вероятностью
                 bombsClose: 0, // количество бомб рядом
                 isShowed: false,
                 isBombFlag: false

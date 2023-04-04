@@ -15,6 +15,7 @@ const Saper: React.FC<SaperType> = (
 
     const MainFieldLocal: MainFieldType = JSON.parse( JSON.stringify( MainField ) ) // полная копия массива ships
 
+    //  <div className={`${"themeCommon"} ${this.props.theme === "light"?"light":"dark"}`}>
     return <div className={classes.mainFiled}>
         {MainFieldLocal.map( (m1, ind1, Arr1) => {
             return <div key={ind1} className={classes.row}>
@@ -42,12 +43,25 @@ const Saper: React.FC<SaperType> = (
                         <div>
                             {m2.isBombFlag // если на ячейке стоит флаг с возможной бомбой
                                 ? <img className={classes.isBombFlag} src={require( '../assets/png/flag.png' )}/> // отображаем флаг
-                                :m2.isShowed // если ячейка была вскрыта ( isShowed)
+                                : m2.isShowed // если ячейка была вскрыта ( isShowed)
                                     ? m2.isBomb // в ячейке бомба?
                                         ? <img className={classes.BOOM} src={require( '../assets/png/BOOM.png' )}/> // бомба при нажатии на нее
-                                        : m2.bombsClose ===0 // количество бомб рядом равно 0?
+                                        : m2.bombsClose === 0 // количество бомб рядом равно 0?
                                             ? null // если да, то ничего не отображаем
-                                            : <div>{m2.bombsClose}</div> // иначе количество бомб рядом
+                                            : <div className={
+                                                m2.bombsClose === 1 // цифра 1?
+                                                    ? classes.blue // синий
+                                                    : m2.bombsClose === 2 // цифра 2?
+                                                        ? classes.green // зеленый
+                                                        : m2.bombsClose === 3 // цифра 3?
+                                                            ? classes.red //  красный
+                                                            : m2.bombsClose === 4 // цифра 4?
+                                                                ? classes.navyBlue// Navy blue
+                                                                : m2.bombsClose === 5 // цифра 5?
+                                                                    ? classes.maroon // Maroon
+                                                                    : ""
+                                            }
+                                            >{m2.bombsClose}</div> // иначе количество бомб рядом
                                     : <img className={classes.EmptyCells} src={require( '../assets/png/cell.png' )}/> //пустые ячейки до нажатия
                             }
 
