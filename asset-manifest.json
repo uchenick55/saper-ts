@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/saper-ts/%20/static/css/main.75ffbe2c.css",
+    "main.js": "/saper-ts/%20/static/js/main.24e4297f.js",
+    "static/media/smile.png": "/saper-ts/%20/static/media/smile.4bf54c2b89fdeb308c12.png",
+    "index.html": "/saper-ts/%20/index.html",
+    "main.75ffbe2c.css.map": "/saper-ts/%20/static/css/main.75ffbe2c.css.map",
+    "main.24e4297f.js.map": "/saper-ts/%20/static/js/main.24e4297f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.75ffbe2c.css",
+    "static/js/main.24e4297f.js"
+  ]
+}
