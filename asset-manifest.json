@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/saper-ts/static/css/main.de4487ca.css",
-    "main.js": "/saper-ts/static/js/main.41ec10d2.js",
+    "main.js": "/saper-ts/static/js/main.0a9e059c.js",
     "static/media/smile.png": "/saper-ts/static/media/smile.4bf54c2b89fdeb308c12.png",
     "index.html": "/saper-ts/index.html",
     "main.de4487ca.css.map": "/saper-ts/static/css/main.de4487ca.css.map",
-    "main.41ec10d2.js.map": "/saper-ts/static/js/main.41ec10d2.js.map"
+    "main.0a9e059c.js.map": "/saper-ts/static/js/main.0a9e059c.js.map"
   },
   "entrypoints": [
     "static/css/main.de4487ca.css",
-    "static/js/main.41ec10d2.js"
+    "static/js/main.0a9e059c.js"
   ]
 }
